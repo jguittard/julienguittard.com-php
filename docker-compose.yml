@@ -1,0 +1,52 @@
+version: '3.3'
+
+services:
+  nginx:
+    container_name: jgdotcom-nginx
+    build: ./_docker/nginx
+    expose:
+      - 80
+      - 443
+    ports:
+      - 8080:80
+      - 4343:443
+    links:
+      - php
+    networks:
+      - jgdotcom
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/www
+
+  php:
+    container_name: jgdotcom-php
+    build: ./_docker/php-fpm
+    expose:
+      - 9000
+    environment:
+      PHP_IDE_CONFIG: "serverName=julienguittard.local"
+    networks:
+      - jgdotcom
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/www
+
+  mail:
+    container_name: jgdotcom-mail
+    image: schickling/mailcatcher:latest
+    environment:
+      MAILCATCHER_PORT_1025_TCP_ADDR: "1025"
+
+  cache:
+    container_name: jgdotcom-cache
+    image: memcached:latest
+    ports:
+      - 11211:11211
+    environment:
+      MEMCACHED_HOST: memcached
+      MEMCACHED_PORT: 11211
+
+networks:
+  jgdotcom:
