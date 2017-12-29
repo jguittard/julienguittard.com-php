@@ -1,0 +1,75 @@
+{
+    "name": "jguittard/julienguittard.com",
+    "description": "Julien Guittard website source code",
+    "type": "project",
+    "homepage": "https://julienguittard.com",
+    "authors": [
+        {
+            "name": "Julien Guittard",
+            "email": "julien.guittard@me.com"
+        }
+    ],
+    "license": "MIT",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.2",
+        "phing/phing": "^2.16",
+        "http-interop/http-middleware": "^0.4.1",
+        "zendframework/zend-component-installer": "^1.0",
+        "zendframework/zend-config-aggregator": "^1.0",
+        "zendframework/zend-expressive": "^2.0.5",
+        "zendframework/zend-expressive-helpers": "^4.0",
+        "zendframework/zend-expressive-fastroute": "^2.0",
+        "zendframework/zend-servicemanager": "^3.3",
+        "zendframework/zend-expressive-zendviewrenderer": "^1.4"
+    },
+    "require-dev": {
+        "atoum/atoum": "^3.2",
+        "behat/behat": "^3.4",
+        "behat/mink": "^1.7",
+        "behat/mink-extension": "^2.3",
+        "behat/mink-goutte-driver": "^1.2",
+        "filp/whoops": "^2.1.7",
+        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/psr7": "^1.4",
+        "justinrainbow/json-schema": "^5.2",
+        "mtdowling/jmespath.php": "^2.4",
+        "php-http/curl-client": "^1.7",
+        "php-http/discovery": "^1.3",
+        "php-http/mock-client": "^1.0",
+        "phpunit/phpunit": "^6.0.8",
+        "squizlabs/php_codesniffer": "^2.8.1",
+        "symfony/property-access": "^4.0",
+        "tolerance/tolerance": "^0.4.2",
+        "zendframework/zend-expressive-tooling": "^0.4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "JG\\": "src/JG/src/",
+            "Api\\": "src/Api/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JGTest\\": "test/JGTest/",
+            "ApiTest\\": "test/ApiTest",
+            "JG\\Behat\\ApiExtension\\": "features/src"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+        ],
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "clear-config-cache": "php bin/clear-config-cache.php",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "upload-coverage": "coveralls -v"
+    }
+}

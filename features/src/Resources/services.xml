@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="jg.api.json.json_storage" class="JG\Behat\ApiExtension\Json\JsonStorage" />
+        <service id="jg.api.json.json_parser" class="JG\Behat\ApiExtension\Json\JsonParser" public="false">
+            <argument>javascript</argument>
+        </service>
+        <service id="jg.api.json.json_searcher" class="JG\Behat\ApiExtension\Json\JsonSearcher" public="false" />
+
+        <service id="jg.api.json.json_inspector" class="JG\Behat\ApiExtension\Json\JsonInspector" public="false">
+            <argument type="service" id="jg.api.json.json_storage" />
+            <argument type="service" id="jg.api.json.json_parser" />
+            <argument type="service" id="jg.api.json.json_searcher" />
+        </service>
+
+        <service id="jg.api.json.json_inspector.resolver" class="JG\Behat\ApiExtension\Json\JsonInspectorResolver">
+            <argument type="service" id="jg.api.json.json_inspector" />
+            <tag name="context.argument_resolver" />
+        </service>
+
+        <service id="jg.api.api_browser" class="JG\Behat\ApiExtension\Api\ApiBrowser" public="false">
+            <argument>%jg.api.base_url%</argument>
+        </service>
+
+        <service id="jg.api.api_browser.resolver" class="JG\Behat\ApiExtension\Api\ApiBrowserResolver">
+            <argument type="service" id="jg.api.api_browser" />
+            <tag name="context.argument_resolver" />
+        </service>
+    </services>
+</container>

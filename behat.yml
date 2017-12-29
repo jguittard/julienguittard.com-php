@@ -1,0 +1,19 @@
+default:
+  suites:
+    default:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+        - JG\Behat\ApiExtension\ApiContext
+        - JG\Behat\ApiExtension\Json\JsonContext:
+          jsonSchemaBaseUrl: %paths.base%/features/bootstrap
+
+  extensions:
+    Behat\MinkExtension:
+      base_url: https://julienguittard.local:4343
+      sessions:
+        default:
+          goutte: ~
+    JG\Behat\ApiExtension\Extension:
+      api:
+        base_url: https://julienguittard.local:4343
+        store_response: true
