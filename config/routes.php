@@ -8,6 +8,6 @@
  * @copyright Copyright (c) 2017 Julien Guittard. (https://julienguittard.com)
  */
 
-/** @var \Zend\Expressive\Application $app */
-$app->get('/', JG\Action\HomeAction::class, 'home');
-$app->get('/api/ping', Api\Action\PingAction::class, 'api.ping');
+require 'routes/routes-common.php';
+require 'routes/routes-blog.php';
+require 'routes/routes-api.php';

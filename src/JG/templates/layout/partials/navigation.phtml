@@ -1,0 +1,40 @@
+<?php
+/**
+ * Julien Guittard Website
+ *
+ * @version   1.0
+ * @author    Julien Guittard <julien.guittard@me.com>
+ * @see       https://github.com/jguittard/julienguittard.com for the canonical source repository
+ * @copyright Copyright (c) 2017 Julien Guittard. (https://julienguittard.com)
+ */
+
+/** @var \Zend\Navigation\AbstractContainer $container */
+$container = $this->navigation('Zend\Navigation\Common')->getContainer();
+?>
+<ul class="navigation" role="menu" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+    <?php /** @var \Zend\Navigation\Page\ExpressivePage $page */
+    foreach ($container as $page): ?>
+    <?php if ($page->hasPages()): ?>
+        <li class="dropdown<?= $page->isActive(true) ? ' active' : '' ?>" role="menuitem">
+            <a href="<?= $page->getHref(); ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <?= $page->getLabel(); ?>
+            </a>
+            <ul class="navigation__dropdown" role="menu">
+                <?php foreach ($page as $subPage): ?>
+                    <li<?= $subPage->isActive(false) ? ' class="active"' : '' ?> role="menuitem">
+                        <a href="<?= $subPage->getHref(); ?>" itemprop="url">
+                            <?= $subPage->getLabel(); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+    <?php else: ?>
+        <li<?= $page->isActive(true) ? ' class="active"' : '' ?> role="menuitem">
+            <a href="<?= $page->getHref(); ?>" itemprop="url">
+                <span itemprop="name"><?= $page->getLabel(); ?></span>
+            </a>
+        </li>
+    <?php endif; ?>
+    <? endforeach; ?>
+</ul>

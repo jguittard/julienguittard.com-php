@@ -18,8 +18,10 @@ $cacheConfig = [
 
 $aggregator = new ConfigAggregator([
     JG\ConfigProvider::class,
+    Blog\ConfigProvider::class,
     Api\ConfigProvider::class,
     new ArrayProvider($cacheConfig),
+    new PhpFileProvider('config/navigation.php'),
     new PhpFileProvider(realpath(__DIR__) . '/autoload/{global,local}/*.php'),
 ], $cacheConfig['config_cache_path']);
 

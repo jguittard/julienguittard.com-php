@@ -13,17 +13,24 @@
     "config": {
         "sort-packages": true
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jguittard/zend-navigation"
+        }
+    ],
     "require": {
         "php": "^7.2",
-        "phing/phing": "^2.16",
         "http-interop/http-middleware": "^0.4.1",
+        "phing/phing": "^2.16",
         "zendframework/zend-component-installer": "^1.0",
         "zendframework/zend-config-aggregator": "^1.0",
         "zendframework/zend-expressive": "^2.0.5",
-        "zendframework/zend-expressive-helpers": "^4.0",
         "zendframework/zend-expressive-fastroute": "^2.0",
-        "zendframework/zend-servicemanager": "^3.3",
-        "zendframework/zend-expressive-zendviewrenderer": "^1.4"
+        "zendframework/zend-expressive-helpers": "^4.0",
+        "zendframework/zend-expressive-zendviewrenderer": "^1.4",
+        "zendframework/zend-navigation": "dev-feature/route-match",
+        "zendframework/zend-servicemanager": "^3.3"
     },
     "require-dev": {
         "atoum/atoum": "^3.2",
@@ -48,13 +55,15 @@
     "autoload": {
         "psr-4": {
             "JG\\": "src/JG/src/",
-            "Api\\": "src/Api/src/"
+            "Api\\": "src/Api/src/",
+            "Blog\\": "src/Blog/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "JGTest\\": "test/JGTest/",
             "ApiTest\\": "test/ApiTest",
+            "BlogTest\\": "test/BlogTest",
             "JG\\Behat\\ApiExtension\\": "features/src"
         }
     },

@@ -53,7 +53,7 @@ class HomeAction implements MiddlewareInterface
         $data = [];
 
         return new HtmlResponse(
-            $this->template->render('app::home', $data)
+            $this->template->render('jg::home', $data)
         );
     }
 }

@@ -1,0 +1,23 @@
+<?php
+/**
+ * Julien Guittard Website
+ *
+ * @version   1.0
+ * @author    Julien Guittard <julien.guittard@me.com>
+ * @see       https://github.com/jguittard/julienguittard.com for the canonical source repository
+ * @copyright Copyright (c) 2017 Julien Guittard. (https://julienguittard.com)
+ */
+?>
+<div class="search-panel">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="<?= $this->url('home'); ?>" method="get" itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction">
+                    <meta itemprop="target" content="https://julienguittard.com/search?q={q}">
+                    <input itemprop="query-input" type="search" name="q" class="search-panel__form  js--search-panel-text" placeholder="Begin typing for search">
+                    <p class="search-panel__text">Press enter to see results or esc to cancel.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

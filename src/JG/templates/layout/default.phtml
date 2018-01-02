@@ -7,4 +7,17 @@
  * @see       https://github.com/jguittard/julienguittard.com for the canonical source repository
  * @copyright Copyright (c) 2017 Julien Guittard. (https://julienguittard.com)
  */
-echo $this->content;
+?>
+<?= $this->doctype(); ?>
+<html lang="en">
+<?= $this->partial('layout::partials/head'); ?>
+<body itemscope itemtype="https://schema.org/WebPage">
+    <?= $this->partial('layout::partials/header'); ?>
+    <?= $this->partial('layout::partials/search'); ?>
+    <main class="container" role="main">
+        <?= $this->content; ?>
+    </main>
+    <?= $this->partial('layout::partials/footer'); ?>
+    <?= $this->inlineScript(); ?>
+</body>
+</html>

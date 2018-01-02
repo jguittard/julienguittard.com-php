@@ -52,7 +52,7 @@ class HomeActionTest extends TestCase
     public function testProcess()
     {
         $this->renderer
-            ->render('app::home', Argument::type('array'))
+            ->render('jg::home', Argument::type('array'))
             ->willReturn('');
         $homePage = new HomeAction($this->renderer->reveal());
         $response = $homePage->process(

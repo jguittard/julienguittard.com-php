@@ -1,0 +1,42 @@
+{
+  "name": "julienguittard.com",
+  "version": "1.0.0",
+  "description": "Julien Guittard website source code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jguittard/julienguittard.com.git"
+  },
+  "author": "Julien Guittard <julien.guittard@me.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jguittard/julienguittard.com/issues"
+  },
+  "homepage": "https://github.com/jguittard/julienguittard.com#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-bower-task": "^0.5.0",
+    "grunt-autoprefixer": "~3.0.4",
+    "grunt-build-control": "~0.7.1",
+    "grunt-contrib-clean": "~1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-cssmin": "~2.2.1",
+    "grunt-contrib-imagemin": "~2.0.1",
+    "grunt-contrib-uglify": "~3.0.1",
+    "grunt-critical": "~0.3.0",
+    "grunt-sass": "~2.0.0",
+    "grunt-svgmin": "~4.0.0",
+    "grunt-uncss": "~0.6.2",
+    "grunt-wiredep": "^3.0.1",
+    "grunt-usemin": "^3.1.1",
+    "jit-grunt": "~0.10.0",
+    "time-grunt": "~1.4.0"
+  },
+  "dependencies": {
+
+  }
+}

@@ -1,5 +1,7 @@
 composer.phar
 /vendor/
+/vendor_ui/
 /tmp/
 *.sq3
 .DS_Store
+/node_modules/

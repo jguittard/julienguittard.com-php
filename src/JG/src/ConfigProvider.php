@@ -43,6 +43,8 @@ class ConfigProvider
         return [
             'factories' => [
                 Action\HomeAction::class => Action\HomeActionFactory::class,
+                Action\AboutAction::class => Action\AboutActionFactory::class,
+                Action\ContactAction::class => Action\ContactActionFactory::class,
             ],
         ];
     }
@@ -56,7 +58,7 @@ class ConfigProvider
     {
         return [
             'paths' => [
-                'app'    => [__DIR__ . '/../templates/jg'],
+                'jg'    => [__DIR__ . '/../templates/jg'],
                 'error'  => [__DIR__ . '/../templates/error'],
                 'layout' => [__DIR__ . '/../templates/layout'],
             ],
