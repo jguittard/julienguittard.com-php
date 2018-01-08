@@ -9,6 +9,11 @@
  */
 
 namespace Blog;
+use Blog\Console\FeedBlogDatabase;
+use Blog\Console\FeedBlogDatabaseFactory;
+use Blog\Middleware\ListPostMiddleware;
+use Blog\Middleware\ListPostMiddlewareFactory;
+use Zend\Db\ResultSet\ResultSetInterface;
 
 /**
  * Class ConfigProvider
@@ -42,7 +47,10 @@ class ConfigProvider
     {
         return [
             'factories' => [
-
+                ListPostMiddleware::class => ListPostMiddlewareFactory::class,
+                ResultSetInterface::class => Model\PostResultSetFactory::class,
+                Model\PostTable::class => Model\PostTableFactory::class,
+                FeedBlogDatabase::class => FeedBlogDatabaseFactory::class,
             ],
         ];
     }
@@ -56,6 +64,7 @@ class ConfigProvider
     {
         return [
             'paths' => [
+                'blog' => [ __DIR__ . '/../templates/blog'],
                 'widgets'    => [__DIR__ . '/../templates/widgets'],
             ],
         ];

@@ -17,6 +17,9 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \Zend\Hydrator\ConfigProvider::class,
+    Zend\Db\ConfigProvider::class,
+    WShafer\PSR11FlySystem\ConfigProvider::class,
     JG\ConfigProvider::class,
     Blog\ConfigProvider::class,
     Api\ConfigProvider::class,
